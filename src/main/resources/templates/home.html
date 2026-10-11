@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16personalities</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f6fa;
+            color: #333;
+        }
+
+        h1, .description {
+            text-align: center;
+        }
+
+        .modes {
+            display: grid;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .mode {
+            display: block;
+            padding: 22px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            color: #333;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .mode:hover {
+            border-color: #777;
+            background-color: #fafafa;
+        }
+
+        .number {
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<h1>16Personalities</h1>
+<p class="description"></p>
+
+<div class="modes">
+    <a class="mode" href="/select?mode=meaning">
+        <span class="number">MODE 1</span>
+        <h2>アルファベットの意味</h2>
+        <p>E・I・S・N・T・F・J・P の意味を覚える</p>
+    </a>
+
+    <a class="mode" href="/select?mode=en-to-ja">
+        <span class="number">MODE 2</span>
+        <h2>アルファベットから日本語</h2>
+        <p>4文字のタイプ名から日本語名を覚える</p>
+    </a>
+
+    <a class="mode" href="/select?mode=ja-to-en">
+        <span class="number">MODE 3</span>
+        <h2>日本語からアルファベット</h2>
+        <p>日本語名から4文字のタイプを覚える</p>
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出題方法の選択</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f6fa;
+            color: #333;
+        }
+
+        .option {
+            display: block;
+            margin: 16px 0;
+            padding: 22px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .option:hover {
+            background: #fafafa;
+            border-color: #777;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 th:text="${modeName}">学習モード</h1>
+<p>どの問題に挑戦する？</p>
+
+<a class="option"
+   th:href="@{/quiz(mode=${mode}, questionSet='all')}">
+    <h2>全ての問題</h2>
+    <p>このモードの問題を一通り解く</p>
+</a>
+
+<a class="option"
+   th:href="@{/quiz(mode=${mode}, questionSet='wrong')}">
+    <h2>間違えた問題</h2>
+    <p>以前に間違えた問題を復習する</p>
+</a>
+
+<a class="back" href="/">← トップ画面に戻る</a>
+
+</body>
+</html>
