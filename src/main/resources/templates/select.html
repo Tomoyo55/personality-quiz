@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,17 +40,18 @@
 
 <h1 th:text="${modeName}">学習モード</h1>
 <p>どの問題に挑戦する？</p>
+<p th:if="${empty}" style="color:#b63c49;">間違えた問題はまだありません。まずは「全ての問題」に挑戦しよう！</p>
 
 <a class="option"
-   th:href="@{/quiz(mode=${mode}, questionSet='all')}">
+   th:href="@{/quiz/start(mode=${mode}, questionSet='all')}">
     <h2>全ての問題</h2>
-    <p>このモードの問題を一通り解く</p>
+    <p>ランダムな順番で16問に挑戦する</p>
 </a>
 
 <a class="option"
-   th:href="@{/quiz(mode=${mode}, questionSet='wrong')}">
+   th:href="@{/quiz/start(mode=${mode}, questionSet='wrong')}">
     <h2>間違えた問題</h2>
-    <p>以前に間違えた問題を復習する</p>
+    <p>以前に間違えた問題を復習する（現在 <span th:text="${wrongCount}">0</span> 問）</p>
 </a>
 
 <a class="back" href="/">← トップ画面に戻る</a>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結果</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #e8e7ff, #dff5ff);
+            color: #343452;
+        }
+
+        header {
+            padding: 22px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 3px 12px #33333310;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #7565d8;
+            font-size: 25px;
+        }
+
+        .container {
+            width: min(720px, 92%);
+            margin: 35px auto;
+        }
+
+        .progress-area {
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
+
+        .progress-track {
+            height: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+            background: #ffffffaa;
+            border-radius: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #8e7cf3, #58c9e8);
+            border-radius: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px #5e5b9918;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 13px;
+            color: #6d5bd0;
+            background: #f0edff;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin: 22px 0;
+            line-height: 1.6;
+            font-size: 23px;
+        }
+
+        .choices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .choice {
+            width: 100%;
+            min-height: 58px;
+            padding: 14px;
+            border: 2px solid #e7e5f5;
+            border-radius: 14px;
+            background: white;
+            color: #343452;
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .choice:hover:not(:disabled) {
+            border-color: #8e7cf3;
+            background: #f8f6ff;
+            transform: translateY(-2px);
+        }
+
+        .choice:disabled {
+            cursor: default;
+        }
+
+        .choice.correct {
+            border-color: #36b987;
+            background: #e7fbf2;
+            color: #167653;
+        }
+
+        .choice.incorrect {
+            border-color: #ef7777;
+            background: #fff0f0;
+            color: #b63c49;
+        }
+
+        .feedback {
+            margin-top: 22px;
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .feedback.correct {
+            background: #e7fbf2;
+            border: 1px solid #b4efd5;
+        }
+
+        .feedback.incorrect {
+            background: #fff0f0;
+            border: 1px solid #ffcaca;
+        }
+
+        .feedback h3 {
+            margin: 0 0 12px;
+            font-size: 20px;
+        }
+
+        .feedback p {
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .next-button {
+            display: block;
+            width: 100%;
+            margin-top: 22px;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(90deg, #8270eb, #a17be8);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .next-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .score {
+            margin-top: 18px;
+            text-align: center;
+            color: #77758e;
+            font-size: 14px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 520px) {
+            .card {
+                padding: 20px;
+            }
+
+            .choices {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <style>
+        a.next-button { text-align: center; text-decoration: none; box-sizing: border-box; }
+        a.sub { background: white; color: #6d5bd0; border: 2px solid #d8d2fa; }
+    </style>
+</head>
+<body>
+<header><h1>🌈 16タイプ暗記クイズ</h1></header>
+<main class="container">
+    <section class="card">
+        <h2>🎊 クイズ終了！</h2>
+        <p>全<span th:text="${total}">16</span>問中
+           <strong th:text="${score}">0</strong>問正解！</p>
+        <p th:if="${wrongCount > 0}">
+            間違えた問題が <strong th:text="${wrongCount}">0</strong> 問あります。復習しよう！
+        </p>
+        <p th:if="${wrongCount == 0}">間違えた問題はありません。すばらしい！🎉</p>
+
+        <a class="next-button" th:href="@{/quiz/start(mode=${mode}, questionSet='wrong')}"
+           th:if="${wrongCount > 0}">間違えた問題を復習する</a>
+        <a class="next-button sub" th:href="@{/quiz/start(mode=${mode}, questionSet='all')}">もう一度（ランダム16問）</a>
+        <a class="next-button sub" href="/">トップ画面へ戻る</a>
+    </section>
+</main>
+</body>
+</html>
