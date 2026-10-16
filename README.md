@@ -3,21 +3,18 @@
 Java / Spring Boot で作った、**16Personalities（16タイプ性格診断）の用語を暗記するための学習クイズ Web アプリ**です。
 E・I・S・N・T・F・J・P の意味や、INTJ＝建築家 のような16タイプの名前を、4択クイズで繰り返し覚えられます。
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Tomoyo55/personality-quiz?quickstart=1)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Tomoyo55/personality-quiz)
-
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.1-6DB33F)
-![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F)
-
-<!-- 公開URLができたら下の行のコメントを外して差し替えてください
-👉 **Live Demo:** https://your-app-name.onrender.com
--->
+👉 **Live Demo:** https://personality-quiz-805o.onrender.com/
+（無料プランのため、初回アクセス時は起動に30秒〜1分ほどかかることがあります）
 
 <p align="center">
   <video src="./demo/personality-quiz.mp4" width="550" autoplay loop muted playsinline></video>
 </p>
 
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.1-6DB33F)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Tomoyo55/personality-quiz?quickstart=1)
 
 ---
 
