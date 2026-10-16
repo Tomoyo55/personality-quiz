@@ -4,10 +4,11 @@ Java / Spring Boot で作った、**16Personalities（16タイプ性格診断）
 E・I・S・N・T・F・J・P の意味や、INTJ＝建築家 のような16タイプの名前を、4択クイズで繰り返し覚えられます。
 
 👉 **Live Demo:** https://personality-quiz-805o.onrender.com/
+
 （無料プランのため、初回アクセス時は起動に30秒〜1分ほどかかることがあります）
 
 <p align="center">
-  <video src="./demo/personality-quiz.mp4" width="550" autoplay loop muted playsinline></video>
+  <img src="./demo/personality-quiz.gif" width="550">
 </p>
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
